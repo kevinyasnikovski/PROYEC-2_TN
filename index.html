@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Día de la Madre, Stella!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #FFD700 0%, #87CEEB 50%, #FFD700 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Flores decorativas flotantes */
+        .flower {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.6;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .flower:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+        .flower:nth-child(2) { top: 70%; right: 8%; animation-delay: 2s; }
+        .flower:nth-child(3) { top: 40%; left: 3%; animation-delay: 4s; }
+        .flower:nth-child(4) { top: 20%; right: 5%; animation-delay: 1s; }
+        .flower:nth-child(5) { top: 80%; left: 10%; animation-delay: 3s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+        }
+
+        .tarjeta {
+            background: linear-gradient(135deg, #FFFFFF 0%, #E6F3FF 50%, #FFFACD 100%);
+            width: 500px;
+            height: 600px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            animation: pulso 3s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .tarjeta:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes pulso {
+            0%, 100% { box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); }
+            50% { box-shadow: 0 30px 80px rgba(135, 206, 235, 0.5); }
+        }
+
+        /* Decoración de esquinas */
+        .corner {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border: 3px solid #FFD700;
+        }
+
+        .corner.top-left {
+            top: 15px;
+            left: 15px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .corner.top-right {
+            top: 15px;
+            right: 15px;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .corner.bottom-left {
+            bottom: 15px;
+            left: 15px;
+            border-right: none;
+            border-top: none;
+        }
+
+        .corner.bottom-right {
+            bottom: 15px;
+            right: 15px;
+            border-left: none;
+            border-top: none;
+        }
+
+        .contenido {
+            z-index: 5;
+        }
+
+        .emoji-grande {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .nombre {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #FF1493, #FFD700, #87CEEB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            animation: vibrar 1s ease-in-out infinite;
+        }
+
+        @keyframes vibrar {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-2px); }
+            75% { transform: translateX(2px); }
+        }
+
+        .titulo {
+            font-size: 1.8rem;
+            color: #FF1493;
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .frase {
+            font-size: 1.3rem;
+            color: #0066CC;
+            font-weight: bold;
+            line-height: 1.6;
+            margin: 25px 0;
+            animation: fadeInOut 4s ease-in-out infinite;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        .corazon {
+            font-size: 1.5rem;
+            margin: 0 8px;
+            display: inline-block;
+            animation: latir 0.8s ease-in-out infinite;
+        }
+
+        @keyframes latir {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+
+        .mensaje-final {
+            font-size: 1.1rem;
+            color: #FF69B4;
+            font-style: italic;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .brillo {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, #FFD700, transparent);
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        .brillo:nth-child(1) { top: 50px; left: 80px; animation: destellar 2s ease-in-out infinite; }
+        .brillo:nth-child(2) { top: 300px; right: 100px; animation: destellar 2.5s ease-in-out infinite 0.5s; }
+        .brillo:nth-child(3) { bottom: 100px; left: 120px; animation: destellar 2s ease-in-out infinite 1s; }
+
+        @keyframes destellar {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.9; transform: scale(1.5); }
+        }
+    </style>
+</head>
+<body>
+    <div class="flower">🌸</div>
+    <div class="flower">🌺</div>
+    <div class="flower">🌼</div>
+    <div class="flower">🌻</div>
+    <div class="flower">💐</div>
+
+    <div class="container">
+        <div class="tarjeta">
+            <div class="corner top-left"></div>
+            <div class="corner top-right"></div>
+            <div class="corner bottom-left"></div>
+            <div class="corner bottom-right"></div>
+
+            <div class="brillo"></div>
+            <div class="brillo"></div>
+            <div class="brillo"></div>
+
+            <div class="contenido">
+                <div class="emoji-grande">✨👑✨</div>
+                
+                <h1 class="nombre">STELLA</h1>
+                
+                <h2 class="titulo">¡Feliz Día de la Madre!</h2>
+                
+                <div class="frase">
+                    <span class="corazon">💛</span>
+                    Mamá, eres el latido de nuestras almas,<br>
+                    la magia que transforma cada día en un sueño,<br>
+                    el amor sin fin que ilumina nuestro camino.
+                    <span class="corazon">💙</span>
+                </div>
+
+                <p class="mensaje-final">
+                    Eres luz, amor y fuerza infinita.<br>
+                    ¡Te queremos sin medida!
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
